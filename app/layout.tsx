@@ -1,13 +1,13 @@
-// src/layout.tsx
 "use client";
-import React from 'react';
+
 import './globals.css';
+import React from 'react';
 
 const Layout = ({ children }) => {
   return (
     <html lang="en">
       <head>
-        <title>Use Case Generator</title>
+        <title>My Application</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>

@@ -1,4 +1,3 @@
-// src/page.tsx
 'use client';
 
 import React, { useState } from 'react';
@@ -19,11 +18,11 @@ const shapeUtils = [PreviewShapeUtil];
 
 const App = () => {
   const [showDetails, setShowDetails] = useState(false);
-  const editor = useEditor();
 
   const handleMakeRealClick = () => {
     setShowDetails(true);
-    makeReal(editor, ''); // Add API key if needed
+    // You can add the makeReal logic here if you need it later
+    // makeReal(editor, ''); // Add API key if needed
   };
 
   return (
@@ -32,10 +31,12 @@ const App = () => {
         <MakeRealButton onClick={handleMakeRealClick} />
       ) : (
         <div className="main-layout">
-          <Tldraw editor={editor}>
+          <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
             <div className="canvas">
               {/* Tldraw canvas is here */}
             </div>
+            <TldrawLogo />
+            <RiskyButCoolAPIKeyInput />
           </Tldraw>
           <div className="use-case-section">
             <div className="use-case-description">Use Case Description</div>

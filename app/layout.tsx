@@ -1,18 +1,40 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+// src/layout.tsx
+import React, { useState } from 'react';
+import { Tldraw, useEditor } from '@tldraw/tldraw';
+import MakeRealButton from './MakeRealButton';
+import { makeReal } from './makeReal';
+import './styles.css'; // Ensure to include the CSS styles
 
-const inter = Inter({ subsets: ['latin'] })
+const Layout = ({ children }) => {
+  const [showDetails, setShowDetails] = useState(false);
+  const editor = useEditor();
 
-export const metadata: Metadata = {
-	title: 'make real starter',
-	description: 'draw a website and make it real',
-}
+  const handleMakeRealClick = () => {
+    setShowDetails(true);
+    makeReal(editor, ''); // Add API key if needed
+  };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
-		</html>
-	)
-}
+  return (
+    <div className="main-container">
+      {!showDetails ? (
+        <MakeRealButton onClick={handleMakeRealClick} />
+      ) : (
+        <div className="main-layout">
+          <Tldraw editor={editor}>
+            <div className="canvas">
+              {/* Tldraw canvas is here */}
+            </div>
+          </Tldraw>
+          <div className="use-case-section">
+            <div className="use-case-description">Use Case Description</div>
+            <div className="flowchart">Diagram/Flowchart</div>
+            <div className="test-cases">Test Cases</div>
+            <div className="code">Code</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Layout;

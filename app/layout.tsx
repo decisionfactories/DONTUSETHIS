@@ -1,4 +1,5 @@
 // src/layout.tsx
+"use client";
 import React, { useState } from 'react';
 import { Tldraw, useEditor } from '@tldraw/tldraw';
 import MakeRealButton from './MakeRealButton';

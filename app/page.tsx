@@ -1,34 +1,52 @@
-'use client'
+// src/page.tsx
+'use client';
 
-import dynamic from 'next/dynamic'
-import '@tldraw/tldraw/tldraw.css'
-import { MakeRealButton } from './components/MakeRealButton'
-import { TldrawLogo } from './components/TldrawLogo'
-import { RiskyButCoolAPIKeyInput } from './components/RiskyButCoolAPIKeyInput'
-import { PreviewShapeUtil } from './PreviewShape/PreviewShape'
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import '@tldraw/tldraw/tldraw.css';
+import { MakeRealButton } from './components/MakeRealButton';
+import { TldrawLogo } from './components/TldrawLogo';
+import { RiskyButCoolAPIKeyInput } from './components/RiskyButCoolAPIKeyInput';
+import { PreviewShapeUtil } from './PreviewShape/PreviewShape';
+import { makeReal } from './makeReal';
+import './globals.css'; // Ensure to include the CSS styles
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
   ssr: false,
-})
+});
 
-const shapeUtils = [PreviewShapeUtil]
+const shapeUtils = [PreviewShapeUtil];
 
-export default function App() {
+const App = () => {
+  const [showDetails, setShowDetails] = useState(false);
+  const editor = useEditor();
+
+  const handleMakeRealClick = () => {
+    setShowDetails(true);
+    makeReal(editor, ''); // Add API key if needed
+  };
+
   return (
-    <html lang="en">
-      <head>
-        <title>My Application</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
-        <div className="editor">
-          <Tldraw persistenceKey="make-real" shareZone={<MakeRealButton />} shapeUtils={shapeUtils}>
-            <TldrawLogo />
-            <RiskyButCoolAPIKeyInput />
+    <div className="main-container">
+      {!showDetails ? (
+        <MakeRealButton onClick={handleMakeRealClick} />
+      ) : (
+        <div className="main-layout">
+          <Tldraw editor={editor}>
+            <div className="canvas">
+              {/* Tldraw canvas is here */}
+            </div>
           </Tldraw>
+          <div className="use-case-section">
+            <div className="use-case-description">Use Case Description</div>
+            <div className="flowchart">Diagram/Flowchart</div>
+            <div className="test-cases">Test Cases</div>
+            <div className="code">Code</div>
+          </div>
         </div>
-      </body>
-    </html>
-  )
-}
+      )}
+    </div>
+  );
+};
+
+export default App;

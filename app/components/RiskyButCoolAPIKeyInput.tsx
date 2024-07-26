@@ -1,3 +1,4 @@
+'use client'
 import { Icon, useBreakpoint } from '@tldraw/tldraw'
 import { ChangeEvent, useCallback } from 'react'
 

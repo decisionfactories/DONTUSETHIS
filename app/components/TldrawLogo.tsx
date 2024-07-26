@@ -1,3 +1,4 @@
+'use client'
 import { useBreakpoint } from '@tldraw/tldraw'
 
 export function TldrawLogo() {

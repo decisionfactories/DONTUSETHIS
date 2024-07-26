@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Tldraw, useEditor } from '@tldraw/tldraw';
 import MakeRealButton from './components/MakeRealButton';
 import { makeReal } from './makeReal';
-import './styles.css'; // Ensure to include the CSS styles
+import './globals.css'; // Ensure to include the CSS styles
 
 const Layout = ({ children }) => {
   const [showDetails, setShowDetails] = useState(false);

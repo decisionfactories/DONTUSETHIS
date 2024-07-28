@@ -7,7 +7,7 @@ import { MakeRealButton } from './components/MakeRealButton';
 import { TldrawLogo } from './components/TldrawLogo';
 import { RiskyButCoolAPIKeyInput } from './components/RiskyButCoolAPIKeyInput';
 import { PreviewShapeUtil } from './PreviewShape/PreviewShape';
-import { AssetUrlsProvider } from '@tldraw/tldraw'; // Add this import
+import { AssetUrlsProvider } from '@tldraw/tldraw';
 import './globals.css'; // Ensure to include the CSS styles
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
@@ -24,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <AssetUrlsProvider> {/* Wrap with AssetUrlsProvider */}
+    <AssetUrlsProvider>
       <div className="main-container">
         <div className="tldraw-container">
           <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>

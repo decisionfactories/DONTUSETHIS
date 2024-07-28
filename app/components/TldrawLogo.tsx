@@ -1,12 +1,11 @@
 'use client'
 import { useBreakpoint } from '@tldraw/tldraw'
-import React from 'react'
 
-export const TldrawLogo = () => {
+export function TldrawLogo() {
 	const breakpoint = useBreakpoint()
 	return (
 		<a
-			className={`tldrawLogo ${breakpoint < 5 ? 'tldrawLogo__mobile' : ''}`}
+			className={tldrawLogo ${breakpoint < 5 ? 'tldrawLogo__mobile' : ''}}
 			href="https://www.tldraw.dev"
 		>
 			<svg
@@ -53,4 +52,4 @@ export const TldrawLogo = () => {
 			</svg>
 		</a>
 	)
-}
+} 

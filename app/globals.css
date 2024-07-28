@@ -1,4 +1,4 @@
-/*globals.css */
+/* src/globals.css */
 body {
   background-color: #f0f0f0; /* Light background */
   color: black; /* Black text */
@@ -20,6 +20,13 @@ body {
   align-items: center;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .makeRealButton {
   background-color: #007bff; /* Blue background */
   color: white;
@@ -34,10 +41,9 @@ body {
 .main-layout {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: 100%; /* Full height */
-  margin-top: 20px;
 }
 
 .canvas {

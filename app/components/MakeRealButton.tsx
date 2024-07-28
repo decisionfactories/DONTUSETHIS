@@ -8,12 +8,7 @@ export const MakeRealButton = ({ onClick }) => {
       await onClick();
     } catch (e) {
       console.error(e);
-      // Remove or replace the following block if addToast is not available
-      // addToast({
-      //   icon: 'cross-2',
-      //   title: 'Something went wrong',
-      //   description: (e as Error).message.slice(0, 100),
-      // });
+      // The addToast function was removed since it's not defined or needed
     }
   };
 

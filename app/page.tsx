@@ -34,12 +34,10 @@ const App = () => {
             <TldrawLogo />
           </Tldraw>
         </div>
-        {!showDetails && (
-          <div className="controls">
-            <RiskyButCoolAPIKeyInput />
-            <MakeRealButton onClick={handleMakeRealClick} />
-          </div>
-        )}
+        <div className="controls">
+          <RiskyButCoolAPIKeyInput />
+          <MakeRealButton onClick={handleMakeRealClick} />
+        </div>
         {showDetails && (
           <div className="main-layout">
             <div className="tldraw-container">

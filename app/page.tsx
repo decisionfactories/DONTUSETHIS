@@ -30,18 +30,29 @@ const App = () => {
             {/* Tldraw canvas is here */}
           </div>
           <TldrawLogo />
-          <RiskyButCoolAPIKeyInput />
         </Tldraw>
       </div>
       {!showDetails && (
-        <MakeRealButton onClick={handleMakeRealClick} />
+        <div className="controls">
+          <RiskyButCoolAPIKeyInput />
+          <MakeRealButton onClick={handleMakeRealClick} />
+        </div>
       )}
       {showDetails && (
-        <div className="use-case-section">
-          <div contentEditable className="use-case-description">Use Case Description</div>
-          <div contentEditable className="flowchart">Diagram/Flowchart</div>
-          <div contentEditable className="test-cases">Test Cases</div>
-          <div contentEditable className="code">Code</div>
+        <div className="main-layout">
+          <div className="tldraw-container">
+            <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
+              <div className="canvas">
+                {/* Tldraw canvas is here */}
+              </div>
+            </Tldraw>
+          </div>
+          <div className="use-case-section">
+            <div contentEditable className="use-case-description">Use Case Description</div>
+            <div contentEditable className="flowchart">Diagram/Flowchart</div>
+            <div contentEditable className="test-cases">Test Cases</div>
+            <div contentEditable className="code">Code</div>
+          </div>
         </div>
       )}
     </div>

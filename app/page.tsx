@@ -24,22 +24,24 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
-        <div className="canvas">
-          {/* Tldraw canvas is here */}
-        </div>
-        <TldrawLogo />
-        <RiskyButCoolAPIKeyInput />
-      </Tldraw>
+      <div className="tldraw-container">
+        <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
+          <div className="canvas">
+            {/* Tldraw canvas is here */}
+          </div>
+          <TldrawLogo />
+          <RiskyButCoolAPIKeyInput />
+        </Tldraw>
+      </div>
       {!showDetails && (
         <MakeRealButton onClick={handleMakeRealClick} />
       )}
       {showDetails && (
         <div className="use-case-section">
-          <div className="use-case-description">Use Case Description</div>
-          <div className="flowchart">Diagram/Flowchart</div>
-          <div className="test-cases">Test Cases</div>
-          <div className="code">Code</div>
+          <div contentEditable className="use-case-description">Use Case Description</div>
+          <div contentEditable className="flowchart">Diagram/Flowchart</div>
+          <div contentEditable className="test-cases">Test Cases</div>
+          <div contentEditable className="code">Code</div>
         </div>
       )}
     </div>

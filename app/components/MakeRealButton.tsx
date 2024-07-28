@@ -3,16 +3,8 @@
 import React from 'react';
 
 export const MakeRealButton = ({ onClick }) => {
-  const handleClick = async () => {
-    try {
-      await onClick();
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   return (
-    <button onClick={handleClick} className="makeRealButton">
+    <button onClick={onClick} style={{ padding: '1em', fontSize: '1.2em', color: 'white', backgroundColor: 'blue', border: 'none', cursor: 'pointer' }}>
       Make Real
     </button>
   );

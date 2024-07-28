@@ -7,14 +7,12 @@ export function RiskyButCoolAPIKeyInput() {
   const [apiKey, setApiKey] = useState('');
 
   useEffect(() => {
-    // Ensure localStorage is accessed only on the client side
     if (typeof window !== 'undefined') {
       const storedKey = localStorage.getItem('makeitreal_key') ?? process.env.OPENAI_API_KEY ?? '';
       setApiKey(storedKey);
     }
   }, []);
 
-  // Store the API key locally, but ONLY in development mode
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setApiKey(value);

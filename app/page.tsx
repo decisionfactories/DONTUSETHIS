@@ -7,6 +7,7 @@ import { MakeRealButton } from './components/MakeRealButton';
 import { TldrawLogo } from './components/TldrawLogo';
 import { RiskyButCoolAPIKeyInput } from './components/RiskyButCoolAPIKeyInput';
 import { PreviewShapeUtil } from './PreviewShape/PreviewShape';
+import { AssetUrlsProvider } from '@tldraw/tldraw'; // Add this import
 import './globals.css'; // Ensure to include the CSS styles
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
@@ -23,39 +24,41 @@ const App = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className="tldraw-container">
-        <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
-          <div className="canvas">
-            {/* Tldraw canvas is here */}
+    <AssetUrlsProvider> {/* Wrap with AssetUrlsProvider */}
+      <div className="main-container">
+        <div className="tldraw-container">
+          <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
+            <div className="canvas">
+              {/* Tldraw canvas is here */}
+            </div>
+            <TldrawLogo />
+          </Tldraw>
+        </div>
+        {!showDetails && (
+          <div className="controls">
+            <RiskyButCoolAPIKeyInput />
+            <MakeRealButton onClick={handleMakeRealClick} />
           </div>
-          <TldrawLogo />
-        </Tldraw>
+        )}
+        {showDetails && (
+          <div className="main-layout">
+            <div className="tldraw-container">
+              <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
+                <div className="canvas">
+                  {/* Tldraw canvas is here */}
+                </div>
+              </Tldraw>
+            </div>
+            <div className="use-case-section">
+              <div contentEditable className="use-case-description">Use Case Description</div>
+              <div contentEditable className="flowchart">Diagram/Flowchart</div>
+              <div contentEditable className="test-cases">Test Cases</div>
+              <div contentEditable className="code">Code</div>
+            </div>
+          </div>
+        )}
       </div>
-      {!showDetails && (
-        <div className="controls">
-          <RiskyButCoolAPIKeyInput />
-          <MakeRealButton onClick={handleMakeRealClick} />
-        </div>
-      )}
-      {showDetails && (
-        <div className="main-layout">
-          <div className="tldraw-container">
-            <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
-              <div className="canvas">
-                {/* Tldraw canvas is here */}
-              </div>
-            </Tldraw>
-          </div>
-          <div className="use-case-section">
-            <div contentEditable className="use-case-description">Use Case Description</div>
-            <div contentEditable className="flowchart">Diagram/Flowchart</div>
-            <div contentEditable className="test-cases">Test Cases</div>
-            <div contentEditable className="code">Code</div>
-          </div>
-        </div>
-      )}
-    </div>
+    </AssetUrlsProvider>
   );
 };
 

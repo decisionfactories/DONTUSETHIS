@@ -33,15 +33,23 @@ code {
   margin-left: 1em;
   padding: 0.5em 1em;
   font-size: 1.2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   background-color: blue;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: darkblue;
 }
 
 .controls input {
   padding: 0.5em;
   font-size: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .main-layout {

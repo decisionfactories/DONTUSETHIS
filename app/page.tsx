@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import '@tldraw/tldraw/tldraw.css';
 import { MakeRealButton } from './components/MakeRealButton';
 import { TldrawLogo } from './components/TldrawLogo';
 import { RiskyButCoolAPIKeyInput } from './components/RiskyButCoolAPIKeyInput';
 import { PreviewShapeUtil } from './PreviewShape/PreviewShape';
-import { AssetUrlsProvider } from '@tldraw/tldraw';
+import { AssetUrlsProvider, useTldrawApp } from '@tldraw/tldraw';
 import './globals.css'; // Ensure to include the CSS styles
 
 const Tldraw = dynamic(async () => (await import('@tldraw/tldraw')).Tldraw, {
@@ -34,11 +34,12 @@ const App = () => {
       <div className="main-container">
         <div className="tldraw-container">
           <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
+            <InitialShape />
             <div className="canvas">
               {/* Tldraw canvas is here */}
             </div>
             <TldrawLogo />
-          </Tldraw>
+          </Traw>
         </div>
         <div className="controls">
           <RiskyButCoolAPIKeyInput />
@@ -64,6 +65,33 @@ const App = () => {
       </div>
     </AssetUrlsProvider>
   );
+};
+
+const InitialShape = () => {
+  const app = useTldrawApp();
+
+  useEffect(() => {
+    const descriptionShape = {
+      id: 'description',
+      type: 'geo', // Geometric shape type
+      x: 100,
+      y: 100,
+      props: {
+        geo: 'rectangle', // Rectangle shape
+        text: 'Description',
+        fill: 'none', // No fill
+        stroke: 'black', // Black border
+        strokeWidth: 2,
+        fontSize: 16,
+        w: 200, // Width of the shape
+        h: 100, // Height of the shape
+      },
+    };
+
+    app.createShapes([descriptionShape]);
+  }, [app]);
+
+  return null;
 };
 
 export default App;

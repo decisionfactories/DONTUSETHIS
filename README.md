@@ -22,7 +22,7 @@ The Use Case Application leverages tldraw, an exceptional React library designed
 
 To use the application, start by drawing a mockup for a piece of UI on the canvas. Once your design is ready, select the drawing and press the "Make Real" button. This action transforms your mockup into a detailed Use Case Description, visualizes the workflow in the form of flowcharts, generates the necessary code to run the use case, and outlines test cases to ensure thorough coverage.
 
-This application is especially beneficial for Product Managers and anyone needing to write use cases, as it streamlines the entire process. By providing a visual and interactive approach, it helps you write use cases more quickly, efficiently, and accurately. You can annotate and refine the use case directly on the canvas, ensuring that every aspect is well-documented and validated. This seamless transition from ideation to implementation and testing significantly enhances the overall development process, making it an indispensable tool for effective project management.
+This application is especially beneficial for Product Managers and anyone needing to write use cases, as it streamlines the entire process. By providing a visual and interactive approach, it helps you write use cases more quickly, efficiently, and accurately. You can annotate and refine the use case directly on the canvas, ensuring that every aspect is well-documented and validated. This seamless transition from ideation to implementation and testing significantly enhances the overall development process, making it an indispensable tool for effective product management.
 
 
 ## The dangerous API key input method

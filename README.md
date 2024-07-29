@@ -14,6 +14,8 @@ Use this repo as a template to create Make Real style apps like
 5. Run `npm run dev`
 6. Open [localhost:3000](http://localhost:3000) and make some stuff real!
 
+FOR NOW JUST DO STEPS 1, 2, 5, AND 6 AND YOU SHOULD BE ABLE TO SEE THE APPLICATION
+
 ## How it works
 
 The Use Case Application leverages tldraw, an exceptional React library designed for creating whiteboards and other infinite canvas experiences.

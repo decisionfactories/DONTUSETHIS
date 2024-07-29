@@ -3,8 +3,8 @@
 Use this repo as a template to create Make Real style apps like
 [makereal.tldraw.com](https://makereal.tldraw.com). To get started:
 
-1. Use the template and clone your new repo to your computer
-2. Run `npm install` to install dependencies
+1. Download and unzip the file. Once unzipped, navigate to its directory in Terminal.
+2. Run `npm install` to install dependencies. 
 3. Get an OpenAI API key from [platform.openai.com/api-keys](https://platform.openai.com/api-keys). Make sure
    you are at least a
    [Tier 1](https://platform.openai.com/docs/guides/rate-limits/usage-tiers) API
@@ -16,29 +16,12 @@ Use this repo as a template to create Make Real style apps like
 
 ## How it works
 
-Make Real is built with [tldraw](https://tldraw.dev), a very good React library for
-creating whiteboards and other infinite canvas experiences.
+The Use Case Application leverages tldraw, an exceptional React library designed for creating whiteboards and other infinite canvas experiences.
 
-To use it, first draw a mockup for a piece of UI. When
-you're ready, select the drawing, and press the Make Real button.
-We'll capture an image of your selection, and send it to
-[OpenAI's GPT-4V](https://platform.openai.com/docs/guides/vision) along with
-instructions to turn it into a HTML file.
+To use the application, start by drawing a mockup for a piece of UI on the canvas. Once your design is ready, select the drawing and press the "Make Real" button. This action transforms your mockup into a detailed Use Case Description, visualizes the workflow in the form of flowcharts, generates the necessary code to run the use case, and outlines test cases to ensure thorough coverage.
 
-We take the HTML response and add it to a tldraw
-[custom shape](https://tldraw.dev/docs/shapes#Custom-shapes). The custom shape
-shows the response in an iframe so that you can interact with it on the canvas. If you
-want to iterate on the response, annotate the iframe, select it all, and press 'Make Real' again.
+This application is especially beneficial for Product Managers and anyone needing to write use cases, as it streamlines the entire process. By providing a visual and interactive approach, it helps you write use cases more quickly, efficiently, and accurately. You can annotate and refine the use case directly on the canvas, ensuring that every aspect is well-documented and validated. This seamless transition from ideation to implementation and testing significantly enhances the overall development process, making it an indispensable tool for effective project management.
 
-## To make changes
-
-To change how Make Real works, start from the [`makeReal()`](./app/makeReal.tsx)
-function. From there, you can change the prompt that gets sent to gpt-4.
-
-If you'd like Make Real to create something other than HTML, you'll need to
-either update the [`PreviewShape`](./app/PreviewShape/PreviewShape.tsx) to
-display something different, or use one of tldraw's built-in shapes like image
-or text.
 
 ## The dangerous API key input method
 

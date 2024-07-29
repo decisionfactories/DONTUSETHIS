@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import '@tldraw/tldraw/tldraw.css';
 import { MakeRealButton } from './components/MakeRealButton';
@@ -33,30 +33,7 @@ const App = () => {
     >
       <div className="main-container">
         <div className="tldraw-container">
-          <Tldraw
-            persistenceKey="make-real"
-            shapeUtils={shapeUtils}
-            onMount={(app) => {
-              const descriptionShape = {
-                id: 'description',
-                type: 'geo', // Geometric shape type
-                x: 100,
-                y: 100,
-                props: {
-                  geo: 'rectangle', // Rectangle shape
-                  text: 'Description',
-                  fill: 'none', // No fill
-                  stroke: 'black', // Black border
-                  strokeWidth: 2,
-                  fontSize: 16,
-                  w: 200, // Width of the shape
-                  h: 100, // Height of the shape
-                },
-              };
-
-              app.createShapes([descriptionShape]);
-            }}
-          >
+          <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>
             <div className="canvas">
               {/* Tldraw canvas is here */}
             </div>

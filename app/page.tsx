@@ -24,7 +24,13 @@ const App = () => {
   };
 
   return (
-    <AssetUrlsProvider>
+    <AssetUrlsProvider
+      assetUrls={{
+        shapes: '/assets/shapes', // Adjust the path to your shapes assets
+        icons: '/assets/icons', // Adjust the path to your icons assets
+        textures: '/assets/textures', // Adjust the path to your textures assets
+      }}
+    >
       <div className="main-container">
         <div className="tldraw-container">
           <Tldraw persistenceKey="make-real" shapeUtils={shapeUtils}>

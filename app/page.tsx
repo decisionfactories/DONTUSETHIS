@@ -39,7 +39,7 @@ const App = () => {
               {/* Tldraw canvas is here */}
             </div>
             <TldrawLogo />
-          </Traw>
+          </Tldraw>
         </div>
         <div className="controls">
           <RiskyButCoolAPIKeyInput />
